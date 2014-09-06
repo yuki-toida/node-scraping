@@ -1,0 +1,10 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "description": "",
+  "author": "YukiToida",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio-httpcli": "*"
+  }
+}
