@@ -14,6 +14,7 @@
     "serve-favicon": "*",
     "debug": "*",
     "ejs": "*",
-    "cheerio-httpcli": "*"
+    "cheerio-httpcli": "*",
+	"async": "*"
   }
 }
