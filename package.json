@@ -2,9 +2,6 @@
   "name": "node-scraping",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "dependencies": {
     "express": "*",
     "express-generator": "*",
@@ -14,6 +11,8 @@
     "serve-favicon": "*",
     "debug": "*",
     "ejs": "*",
-    "cheerio-httpcli": "*"
+    "cheerio-httpcli": "*",
+	"mysql": "*",
+	"node-config": "*"
   }
 }

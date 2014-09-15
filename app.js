@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('config');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 // リクエスト受信時に、その情報を指定されたストリームやコンソールに出力する
 app.use(logger('dev'));
 
-// json、form、form-data 等の形式で送信されたリクエストボディを解析してreqオブジェクトのbodyプロパティに格納する
+// json、form、form-data 等の形式で送信されたリクエストボディを解析してreqオブジェクトのbodyプロパティに格納
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -34,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // リクエストURLに対応する処理を実行する
 app.use('/', require('./routes/index'));
-
 //app.use('/detail', require('./routes/detail'));
 
 // catch 404 and forward to error handler
@@ -43,8 +43,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
@@ -68,5 +66,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.set('port', config.port);
+var server = app.listen(app.get('port'), function() {
+  console.log('listening on ' + server.address().port);
+});
 
-module.exports = app;
